@@ -45,7 +45,7 @@ function loadArticles(sortBy = "views", searchTerm = "", category = "all") {
                 return;
             }
 
-            // Сортировка и отображение статей
+            // Сортировка статей по выбранному критерию
             filteredArticles.sort((a, b) => {
                 if (sortBy === "views") {
                     return b.views - a.views;
@@ -54,19 +54,23 @@ function loadArticles(sortBy = "views", searchTerm = "", category = "all") {
                 }
             });
 
+            // Отображение самой популярной статьи
             const topArticle = filteredArticles[0];
             const topReadingTime = Math.ceil(topArticle.wordCount / 200);
             mostPopularArticle.innerHTML = `
                 <h5>${topArticle.title}</h5>
+                <img src="${topArticle.image}" alt="${topArticle.title}" class="img-fluid mb-2">
                 <p>${topArticle.content.substring(0, 150)}...</p>
                 <p><small>Views: ${topArticle.views} | Reading time: ${topReadingTime} min</small></p>
             `;
 
+            // Отображение всех статей
             filteredArticles.forEach(article => {
                 const readingTime = Math.ceil(article.wordCount / 200);
                 newsSection.innerHTML += `
                     <div class="col-md-4">
                         <div class="card">
+                            <img src="${article.image}" class="card-img-top" alt="${article.title}">
                             <div class="card-body">
                                 <h5 class="card-title">${article.title}</h5>
                                 <p class="card-text">${article.content.substring(0, 100)}...</p>
