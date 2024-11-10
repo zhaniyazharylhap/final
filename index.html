@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Подключите здесь в конце -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="navbar navbar-expand-lg" style="background-color: #db7093; width: 100%;">
@@ -26,8 +26,6 @@
             <button id="theme-toggle" class="btn" style="color: #ffb6c1; background-color: #ffffff; border: 1px solid #ffb6c1;">🌙</button>
         </div>
     </header>
-
-    <!-- Секция категорий с иконками -->
     <section class="container mt-3" id="category-icons">
         <h5 class="text-muted">Categories</h5>
         <div class="d-flex justify-content-start">
@@ -55,7 +53,23 @@
         </section>
         <section id="news-section" class="row"></section>
     </main>
-
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 ZHAS NEWS. All Rights Reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Contact Us</a>
+            </p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    
     <script src="script.js"></script>
 </body>
 </html>
