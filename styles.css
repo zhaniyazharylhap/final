@@ -1,0 +1,53 @@
+body {
+    background-color: var(--background);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+:root {
+    --background: #ffffff;
+    --text-color: #000000;
+}
+
+[data-theme="dark"] {
+    --background: #333333;
+    --text-color: #ffffff;
+}
+
+.card {
+    margin-bottom: 1.5rem;
+}
+
+#theme-toggle {
+    cursor: pointer;
+}
+
+#most-popular {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#category-icons {
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+}
+
+#category-icons h5 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.category-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.category-link i {
+    margin-right: 0.3rem;
+}
+
+.category-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

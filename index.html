@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Eduford</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            </ul>
+            <input type="text" id="search-input" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
+            <button id="theme-toggle" class="btn btn-outline-light">🌙</button>
+        </div>
+    </header>
+
+    <!-- Секция категорий с иконками -->
+    <section class="container mt-3" id="category-icons">
+        <h5 class="text-muted">Categories</h5>
+        <div class="d-flex justify-content-start">
+            <a href="#" class="category-link mr-3" data-category="all"><i class="fas fa-list"></i> All Articles</a>
+            <a href="#" class="category-link mr-3" data-category="Health"><i class="fas fa-heart"></i> Health</a>
+            <a href="#" class="category-link mr-3" data-category="Technology"><i class="fas fa-laptop"></i> Technology</a>
+            <a href="#" class="category-link mr-3" data-category="Arts"><i class="fas fa-paint-brush"></i> Arts</a>
+        </div>
+    </section>
+
+    <main class="container my-5">
+        <section id="most-popular" class="mb-5">
+            <h2>Most Popular Article</h2>
+            <div id="most-popular-article" class="card bg-light p-3"></div>
+        </section>
+        <section id="news-section" class="row"></section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
