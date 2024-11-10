@@ -6,8 +6,22 @@ document.addEventListener("DOMContentLoaded", function() {
     setupCategoryIcons();
 });
 
+// Функция для установки переключения темы
+function setupThemeToggle() {
+    const themeToggle = document.getElementById("theme-toggle");
+    const currentTheme = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    themeToggle.textContent = currentTheme === "dark" ? "☀️" : "🌙";
 
+    themeToggle.addEventListener("click", () => {
+        const theme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+        themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+    });
+}
 
+// Функция для обработки поиска
 function setupSearch() {
     const searchInput = document.getElementById("search-input");
     searchInput.addEventListener("input", (event) => {
@@ -16,17 +30,19 @@ function setupSearch() {
     });
 }
 
+// Функция для установки иконок категорий
 function setupCategoryIcons() {
     const categoryLinks = document.querySelectorAll(".category-link");
     categoryLinks.forEach(link => {
         link.addEventListener("click", (event) => {
-            event.preventDefault(); // Отменяем переход по ссылке
+            event.preventDefault();
             const category = link.getAttribute("data-category");
             loadArticles(undefined, "", category);
         });
     });
 }
 
+// Функция загрузки статей с фильтрацией, сортировкой и поиском
 function loadArticles(sortBy = "views", searchTerm = "", category = "all") {
     fetch("articles.json")
         .then(response => response.json())
@@ -85,20 +101,7 @@ function loadArticles(sortBy = "views", searchTerm = "", category = "all") {
         });
 }
 
-function setupThemeToggle() {
-    const themeToggle = document.getElementById("theme-toggle");
-    const currentTheme = localStorage.getItem("theme") || "light";
-    document.documentElement.setAttribute("data-theme", currentTheme);
-    themeToggle.textContent = currentTheme === "dark" ? "☀️" : "🌙";
-
-    themeToggle.addEventListener("click", () => {
-        const theme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-        document.documentElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
-        themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
-    });
-}
-
+// Функция для сортировки статей
 function setupSorting() {
     const sortSelect = document.getElementById("sort-select");
     if (sortSelect) {
