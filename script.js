@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     setupCategoryIcons();
 });
 
+
+
 function setupSearch() {
     const searchInput = document.getElementById("search-input");
     searchInput.addEventListener("input", (event) => {
