@@ -10,66 +10,95 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="navbar navbar-expand-lg" style="background-color: #db7093; width: 100%;">
-        <a class="navbar-brand" href="#" style="color: #ffffff; font-weight: bold;">ZHAS NEWS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
+    <header class="navbar d-flex align-items-center justify-content-between" style="background-color: #db7093; width: 100%; padding: 10px 20px;">
+        <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="#" style="color: #ffffff;">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" style="color: #ffffff;">Products</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" style="color: #ffffff;">Features</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" style="color: #ffffff;">About</a></li>
-            </ul>
-            <input type="text" id="search-input" class="form-control mr-sm-2" placeholder="Search" aria-label="Search" style="width: 200px;">
-            <button id="theme-toggle" class="btn" style="color: #ffb6c1; background-color: #ffffff; border: 1px solid #ffb6c1;">🌙</button>
-        </div>
+
+        <a class="navbar-brand mx-auto" href="index.html" style="color: #ffffff; font-weight: bold;">ZHAS NEWS</a>
+
+        <input type="text" id="search-input" class="form-control mx-auto" placeholder="Search articles..." aria-label="Search" style="max-width: 400px; text-align: center;">
+
+        <button id="theme-toggle" class="btn" style="color: #ffb6c1; background-color: #ffffff; border: 1px solid #ffb6c1;">🌙</button>
     </header>
-    <section class="container mt-3" id="category-icons">
-        <h5 class="text-muted">Categories</h5>
-        <div class="d-flex justify-content-start">
-            <a href="#" class="category-link mr-3" data-category="all"><i class="fas fa-list"></i> All Articles</a>
-            <a href="#" class="category-link mr-3" data-category="Health"><i class="fas fa-heart"></i> Health</a>
-            <a href="#" class="category-link mr-3" data-category="Technology"><i class="fas fa-laptop"></i> Technology</a>
-            <a href="#" class="category-link mr-3" data-category="Environment"><i class="fas fa-leaf"></i> Environment</a>
-            <a href="#" class="category-link mr-3" data-category="Arts"><i class="fas fa-flask"></i> Arts</a>
-            <a href="#" class="category-link mr-3" data-category="Automotive"><i class="fas fa-car"></i> Automotive</a>
-            <a href="#" class="category-link mr-3" data-category="Society"><i class="fas fa-person"></i> Society</a>
-            <a href="#" class="category-link mr-3" data-category="Travel"><i class="fas fa-suitcase"></i> Travel</a>
-            <a href="#" class="category-link mr-3" data-category="Finance"><i class="fas fa-dollar"></i> Finance</a>
+
+    <div id="sidebarMenu" class="bg-light">
+        <button class="close-sidebar" aria-label="Close sidebar">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="p-4" style="height: 100vh;">
+            <h5 class="text-dark">Menu</h5>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <hr>
+                <h6 class="text-secondary">Categories</h6>
+                <li class="nav-item"><a class="nav-link category-link" href="#" data-category="all"><i class="fas fa-list"></i> All Articles</a></li>
+                <li class="nav-item"><a class="nav-link category-link" href="#" data-category="Health"><i class="fas fa-heart"></i> Health</a></li>
+                <li class="nav-item"><a class="nav-link category-link" href="#" data-category="Technology"><i class="fas fa-laptop"></i> Technology</a></li>
+                <li class="nav-item"><a class="nav-link category-link" href="#" data-category="Environment"><i class="fas fa-leaf"></i> Environment</a></li>
+                <li class="nav-item"><a class="nav-link category-link" href="#" data-category="Arts"><i class="fas fa-paint-brush"></i> Arts</a></li>
+                <li class="nav-item"><a class="nav-link category-link" href="#" data-category="Automotive"><i class="fas fa-car"></i> Automotive</a></li>
+                <li class="nav-item"><a class="nav-link category-link" href="#" data-category="Society"><i class="fas fa-users"></i> Society</a></li>
+                <li class="nav-item"><a class="nav-link category-link" href="#" data-category="Travel"><i class="fas fa-plane"></i> Travel</a></li>
+                <li class="nav-item"><a class="nav-link category-link" href="#" data-category="Finance"><i class="fas fa-dollar-sign"></i> Finance</a></li>
+            </ul>
+            <hr>
+
+            <h6 class="text-secondary">Sort Articles</h6>
+            <div id="sidebar-sort-options" class="d-flex flex-column">
+                <button class="sort-button btn btn-outline-primary my-1" data-sort="date">Newest</button>
+                <button class="sort-button btn btn-outline-primary my-1" data-sort="views">Most Viewed</button>
+            </div>
         </div>
-    </section>
+    </div>
 
     <main class="container my-5">
         <section id="most-popular" class="mb-5">
             <h2 id="most-popular-title">Most Popular Article</h2>
             <div id="most-popular-article" class="card">
                 <h5 class="card-title">Climate Change and the Future of Renewable Energy</h5>
-                <img src="5.jpg" alt="Renewable Energy Image">
+                <img src="images/5.png" alt="Renewable Energy Image" class="img-fluid">
                 <p class="card-text">As climate change continues to be a pressing global issue, renewable energy sources are becoming increasingly important...</p>
                 <div class="card-footer">Views: 400 | Reading time: 4 min</div>
             </div>
         </section>
-        <section id="news-section" class="row"></section>
+        <section id="news-section" class="row justify-content-center"></section>
     </main>
-    <footer class="footer mt-auto py-3">
-        <div class="container text-center">
-            <p>&copy; 2024 ZHAS NEWS. All Rights Reserved.</p>
-            <p>
-                <a href="#">Privacy Policy</a> | 
-                <a href="#">Terms of Service</a> | 
-                <a href="#">Contact Us</a>
-            </p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+
+    <div class="modal fade" id="articleModal" tabindex="-1" aria-labelledby="articleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="articleModalLabel">Article Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="Article Image" class="img-fluid mb-3" />
+                    <p id="modalDate" class="text-muted"></p>
+                    <p id="modalCategory" class="font-italic"></p>
+                    <p id="modalViews" class="text-info"></p>
+                    <p id="modalContent"></p>
+                    
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
-    </footer>
-    
-    
+    </div>
+    <footer class="footer">
+        <p>Lovely, Zhaniya, Samiya, Ayaulym from IT-2305</p>
+        <p>All rights are reserved</p>
+        <p>
+            <a href="https://www.instagram.com" target="_blank" class="footer-link">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </p>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
