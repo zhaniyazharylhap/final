@@ -1,5 +1,4 @@
 :root {
-    /* Светлая тема (по умолчанию) */
     --background-color: #fff5ee;
     --text-color: #333333;
     --card-bg-color: #ffffff;
@@ -11,7 +10,6 @@
     --body-font: 'Montserrat', sans-serif;
 }
 
-/* Темная тема */
 [data-theme="dark"] {
     --background-color: #333333;
     --text-color: #ffffff;
@@ -34,7 +32,16 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Стили для navbar */
+#search-input {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
 .navbar {
     background-color: var(--navbar-bg-color);
     color: var(--navbar-text-color);
@@ -59,7 +66,15 @@ body {
     color: var(--navbar-bg-color);
 }
 
-/* Стиль для заголовка "Most Popular Article" */
+.navbar-toggler {
+    font-size: 1.5rem;
+    color: #ffffff;
+    border: none;
+    background: none;
+    margin-right: 10px;
+    display: block;
+}
+
 #most-popular-title {
     font-family: var(--title-font);
     font-size: 1.5rem;
@@ -69,7 +84,6 @@ body {
     margin: 20px 0;
 }
 
-/* Ширина карточки самого популярного артикля */
 #most-popular-article {
     width: 100%;
     max-width: 960px;
@@ -90,7 +104,6 @@ body {
     text-align: center;
 }
 
-/* Стили для карточек */
 .card {
     background-color: var(--card-bg-color);
     border: none;
@@ -152,7 +165,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Стили для кнопки "Read More" */
 .card .read-more {
     font-size: 0.9rem;
     color: var(--accent-color);
@@ -165,34 +177,102 @@ body {
     text-decoration: underline;
 }
 
-/* Секция категорий и сортировки */
-.sort-options, #category-icons {
+#filter-section {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    font-weight: bold;
-    color: var(--accent-color);
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#sort-options {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
     margin-bottom: 20px;
 }
 
-.sort-options select, #category-icons a {
-    font-size: 1rem;
+.sort-button {
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 5px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sort-button.active, .sort-button:hover {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+
+#category-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.category-link {
     color: var(--accent-color);
     text-decoration: none;
+    font-weight: bold;
 }
 
-.sort-options select:hover, #category-icons a:hover {
+.category-link:hover {
     text-decoration: underline;
 }
-.footer {
-    width: 100%;
-    background-color: var(--navbar-bg-color); /* Совпадает с цветом навбара */
-    color: var(--navbar-text-color);
-    padding: 20px 0;
+
+#sidebarMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    font-family: 'Playfair Display', serif;
+    z-index: 1000;
+    padding-top: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out, background-color 0.3s, color 0.3s;
 }
 
-.footer p, .footer .social-icons {
-    margin: 10px 0;
+#sidebarMenu.show {
+    transform: translateX(0);
+}
+
+.sidebar-content a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar-content a:hover {
+    text-decoration: underline;
+}
+
+.close-sidebar {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--text-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.footer {
+    width: 100%;
+    background-color: var(--navbar-bg-color);
+    color: var(--navbar-text-color);
+    padding: 20px 0;
+    text-align: center;
 }
 
 .footer a {
@@ -215,4 +295,42 @@ body {
 
 .footer .social-icons i:hover {
     color: var(--navbar-hover-color);
+}
+
+.cursor-glow {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #ff1493, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+[data-theme="dark"] .modal-content {
+    color: var(--text-color);
+    background-color: var(--card-bg-color); 
+}
+
+[data-theme="dark"] .modal-body p {
+    color: var(--text-color); 
+}
+
+
+#sidebar-sort-options .sort-button {
+    color: white; 
+    background-color: #ff1493; 
+    border-color: #ff1493; 
+}
+
+#sidebar-sort-options .sort-button.active {
+    color: white;
+    background-color: #ff69b4; 
+}
+
+#sidebar-sort-options .sort-button:hover {
+    background-color: #ff69b4; 
+    border-color: #ff69b4;
 }
